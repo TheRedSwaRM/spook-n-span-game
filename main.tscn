@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ghost.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 24.1868
+
+[node name="main" type="Node2D"]
+
+[node name="ghostChar" type="KinematicBody2D" parent="."]
+position = Vector2( 503, 291 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ghostChar"]
+scale = Vector2( 0.78125, 0.8125 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ghostChar"]
+shape = SubResource( 1 )
