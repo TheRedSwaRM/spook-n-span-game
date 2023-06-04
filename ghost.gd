@@ -1,11 +1,11 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
-var velocity = Vector2.ZERO
+#var velocity = Vector2.ZERO
 var acceleration = 400
 var speed = 100
-var max_speed = 100
-var stop_inertia = 400
+var max_speed = 200
+var stop_inertia = 300
 
 #Jump
 var fallMultiplier = 1.2
@@ -18,6 +18,7 @@ func _physics_process(delta):
 	input_velocity.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_velocity.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
+	
 	input_velocity = input_velocity.normalized()
 	
 	if input_velocity != Vector2.ZERO:
@@ -26,7 +27,11 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, stop_inertia * delta)
 		
 	#move_and_collide(velocity*delta)
-	move_and_slide(velocity, Vector2.UP)
+	velocity.x = clamp(velocity.x,-max_speed,max_speed)
+	velocity.y = clamp(velocity.y,-max_speed,max_speed)
+	set_velocity(velocity)
+	set_up_direction(Vector2.UP)
+	move_and_slide()
 
 	
 	print(velocity)
