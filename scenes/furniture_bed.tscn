@@ -1,5 +1,22 @@
-[gd_scene format=3 uid="uid://vs4er432h10o"]
+[gd_scene load_steps=4 format=3 uid="uid://vs4er432h10o"]
+
+[ext_resource type="Texture2D" uid="uid://vvyaypn3cyfn" path="res://assets/art/furniture_free pack.png" id="1_loud4"]
+[ext_resource type="Script" path="res://scenes/StaticBody2D.gd" id="1_t3nfg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drjvf"]
+size = Vector2(32, 88)
 
 [node name="furniture_bed" type="Node2D"]
 
-[node name="furniture_bed_sprite" type="Sprite2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("1_t3nfg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_drjvf")
+disabled = true
+
+[node name="furniture_bed_sprite" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_loud4")
+hframes = 7
+vframes = 2
