@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,3 +10,10 @@ func _ready():
 func _process(delta):
 	pass
 
+func _on_mouse_entered():
+	print("yo, mouse!")
+	pass # Replace with function body.
+
+func _on_body_entered(body):
+	print("yo, collision!")
+	pass # Replace with function body.
