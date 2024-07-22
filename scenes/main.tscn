@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkgmrbtqmuci"]
+[gd_scene load_steps=6 format=3 uid="uid://bkgmrbtqmuci"]
 
 [ext_resource type="PackedScene" uid="uid://bj1my3heheye7" path="res://scenes/player_ghost.tscn" id="2_gc0xg"]
 [ext_resource type="Texture2D" uid="uid://dghtjd48qt8ww" path="res://assets/art/icon.png" id="3_10mux"]
 [ext_resource type="PackedScene" uid="uid://vs4er432h10o" path="res://scenes/furniture_bed.tscn" id="3_go6cy"]
+[ext_resource type="Script" path="res://scenes/furniture_bed.gd" id="4_rbhtb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi31"]
 size = Vector2(32, 1120)
@@ -82,3 +83,4 @@ texture = ExtResource("3_10mux")
 
 [node name="furniture_bed" parent="." instance=ExtResource("3_go6cy")]
 position = Vector2(706, 567)
+script = ExtResource("4_rbhtb")

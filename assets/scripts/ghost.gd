@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 
+# button signals
+# signal fix_furniture
+
 #var velocity = Vector2.ZERO
 var acceleration = 400
 var speed = 100
@@ -35,3 +38,8 @@ func _physics_process(delta):
 
 	
 	# print(velocity)
+	
+	# send signal to fix furniture
+	if Input.is_action_just_pressed("spacebar"):
+		SignalBus.emit_signal("fix_furniture")
+		print("ghost pressed spacebar")
